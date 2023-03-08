@@ -1,0 +1,96 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+.main{
+  color: rgb(8, 5, 5);
+  background-color: rgb(226, 221, 229);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-section{
+  width: 450px;
+  height: 300px;
+  background-color: rgb(67, 66, 140);
+  border: 1px solid black;
+  border-radius: 15px;
+}
+.top-screen-black{
+  width: 400px;
+  height: 260px;
+  background-color: antiquewhite;
+  margin: 15px auto;
+}
+.middle-section{
+  width: 450px;
+  height: 30px;
+  background-color: rgb(67, 66, 140);
+  border-radius: 15px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+.border{
+  height: 30px;
+  width: 3px;
+  background-color: black;
+  margin: 0 30px;
+}
+
+.bottom-section{
+  width: 450px;
+  height: 300px;
+  background-color: rgb(67, 66, 140);
+  border: 1px solid black;
+  border-radius: 15px;
+}
+.bottom-screen-black{
+  width: 300px;
+  height: 250px;
+  background-color: antiquewhite;
+  margin: 15px auto;
+}
+
+.controllers{
+  display: flex;
+  justify-content: center;
+  color: wheat;
+  width: 100%;
+  
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+.flex{
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
