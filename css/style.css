@@ -43,12 +43,41 @@
   border: 1px solid black;
   border-radius: 15px;
 }
-.top-screen-black{
+.top-screen-border{
+
   width: 400px;
   height: 260px;
-  background-color: antiquewhite;
+  background-color: beige;
   margin: 15px auto;
+  padding: 10px;
+  border-radius: 5px;
 }
+.top-screen{
+  background-color: beige;
+  width: 370px;
+  height: 240px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 5px solid black;
+}
+.header{
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px;
+}
+.img{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+
+  padding: 20px;
+  border: 1px solid red;
+}
+
+
 .middle-section{
   width: 450px;
   height: 30px;
@@ -72,7 +101,7 @@
   border: 1px solid black;
   border-radius: 15px;
 }
-.bottom-screen-black{
+.bottom-screen-border{
   width: 300px;
   height: 250px;
   background-color: antiquewhite;
@@ -93,4 +122,8 @@
   display: flex;
   justify-self: center;
   align-self: center;
+}
+
+.name{
+  color: black;
 }

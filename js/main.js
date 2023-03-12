@@ -1,7 +1,7 @@
 
-let topScreen = document.querySelector.apply(".top-screen")
+let topScreen = document.querySelector(".top-screen")
 
-let name = document.querySelector(".name")
+let pokeName = document.querySelector(".name")
 let id = document.querySelector(".id")
 let frontImg = document.querySelector(".front-img")
 let backImg = document.querySelector(".back-img")
@@ -22,6 +22,10 @@ function fetchPokemon(){
           type: data.types.map((type)=> type.type.name).join(", ")
         }
         console.log(pokemon)
+        pokeName.textContent = pokemon.name
+        id.textContent = pokemon.pokeID
+        frontImg.src = pokemon.imgFront
+        backImg.src = pokemon.imgBack
         
       })
       .catch(err => {
