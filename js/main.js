@@ -1,12 +1,16 @@
 
 let topScreen = document.querySelector(".top-screen")
-
 let pokeName = document.querySelector(".name")
 let pokeID = document.querySelector(".id")
 let frontImg = document.querySelector(".front-img")
 let backImg = document.querySelector(".back-img")
-
 let listItems = document.querySelectorAll(".list-item")
+let leftButton = document.querySelector(".left-button")
+let rightButton = document.querySelector(".right-button")
+//event listeners
+leftButton.addEventListener("click", handleLeftButton)
+rightButton.addEventListener("click", handleRightButton)
+
 
 function fetchPokemon(id){
   
@@ -70,6 +74,15 @@ function fetchPokemonList(url){
 }
 fetchPokemon()
 
-
-
+// click functions
+function handleLeftButton(){
+  if(prevUrl){
+    fetchPokemon(prevUrl)
+  }
+}
+function handleRightButton(){
+  if(nextUrl){
+    fetchPokemon(nextUrl)
+  }
+}
 fetchPokemonList('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20')
