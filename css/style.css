@@ -26,7 +26,7 @@
 /* LAYOUT
 /*******************************************/
 body{
-  background-color: rgb(226, 221, 229);
+  background-color: rgb(12, 9, 55);
   width: 100%;
   height: 100%;
 
@@ -43,7 +43,7 @@ body{
 .top-section{
   width: 450px;
   height: 300px;
-  background-color: rgb(67, 66, 140);
+  background-color: rgb(33,65,171);
   border: 1px solid black;
   border-radius: 15px;
 }
@@ -85,7 +85,7 @@ body{
 .middle-section{
   width: 450px;
   height: 30px;
-  background-color: rgb(67, 66, 140);
+  background-color: rgb(33,65,171);
   border-radius: 15px;
   border: 1px solid black;
   display: flex;
@@ -101,7 +101,7 @@ body{
 .bottom-section{
   width: 450px;
   height: 300px;
-  background-color: rgb(67, 66, 140);
+  background-color: rgb(33,65,171);
   border: 1px solid black;
   border-radius: 15px;
 }
@@ -175,4 +175,14 @@ body{
 
 .name{
   color: black;
+}
+
+.opening-screen img{
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.hide{
+  display: none;
 }
