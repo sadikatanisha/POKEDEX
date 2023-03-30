@@ -10,6 +10,10 @@ let listItems = document.querySelectorAll(".list-item")
 let leftButton = document.querySelector(".left-button")
 let rightButton = document.querySelector(".right-button")
 
+let pokeDetails = document.querySelector(".pokemon-details")
+let openingImg = document.querySelector(".opening-img")
+//
+// let openingScreen = document.querySelector(".opening-screen")
 //event listeners
 leftButton.addEventListener("click", handleLeftButton)
 rightButton.addEventListener("click", handleRightButton)
@@ -19,15 +23,25 @@ listItems.forEach((listItem)=>{
 })
 
 //functions
-let capitalize = (str) => str[0].toUpperCase() + str.substr(1)
 
+//function to capitalize the first letters
+let capitalize = (str) => str[0].toUpperCase() + str.substr(1) 
+
+let resetScreen = () => {
+  openingImg.classList.add('hide');
+  pokeDetails.classList.remove('hide')
+  for (const type of types) {
+    topScreen.classList.remove(type);
+  }
+};
 
 function fetchPokemon(id){
 
   fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
-        
+        resetScreen()
+        //pokemon object 
         const pokemon = {
           name : data.name,
           pokeID : data.id,
@@ -35,13 +49,27 @@ function fetchPokemon(id){
           backImg: data.sprites.back_default,
           type: data.types.map((type)=> type.type.name)
         }
-        console.log(pokemon)
+        // console.log(pokemon)
+        let pokeTypeOne = pokemon.type[0]
+        let pokeTypeTwo = pokemon.type[1]
+
         pokeName.textContent = capitalize (pokemon.name)
         pokeID.textContent = pokemon.pokeID
         frontImg.src = pokemon.frontImg
         backImg.src = pokemon.backImg
-        typeOne.textContent = pokemon.type[0]
-        typeTwo.textContent = pokemon.type[1]
+        typeOne.textContent = capitalize(pokemon.type[0])
+        
+        if(pokeTypeTwo){
+          typeTwo.classList.remove("hide")
+          typeTwo.textContent = capitalize(pokeTypeTwo)
+
+        }else{
+          typeTwo.classList.add("hide")
+          typeTwo.textContent = ""
+        }
+        topScreen.classList.add(pokemon.type[0])
+
+        
         
       })
       .catch(err => {
@@ -52,6 +80,16 @@ function fetchPokemon(id){
 //set the previous url and next url to null
 let prevUrl = null
 let nextUrl = null
+
+let types = [
+  'normal', 'fighting', 'flying',
+  'poison', 'ground', 'rock',
+  'bug', 'ghost', 'steel',
+  'fire', 'water', 'grass',
+  'electric', 'psychic', 'ice',
+  'dragon', 'dark', 'fairy'
+]
+
 //fetch pokemon to the list --> limit 20 each time
 function fetchPokemonList(url){
   fetch(url)
@@ -83,6 +121,7 @@ function fetchPokemonList(url){
 
 
 // click functions
+
 function handleLeftButton(){
   if(prevUrl){
     fetchPokemonList(prevUrl)
@@ -95,11 +134,13 @@ function handleRightButton(){
 }
 
 function handleListItemClick(e){
-  
+    //if we click anywhere else instead of the pokemon name --> return 
     if(!e.target){
       return
     }
+    //get only the id no
     let id = e.target.textContent.split(".")[0]
+    //pass it to the fetch pokemon function as an agrument
     fetchPokemon(id)
 
 }
