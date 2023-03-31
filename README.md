@@ -1,4 +1,5 @@
-# POKEDEX
+# POKEDEX 
+ <a href="https://pokedexbysadika.netlify.app/">Visit here</a>
 The pokemon index project using PokeAPI is a web based application that allows users to browse through the whole pokemon list along with their details such as pokemon type.
 
 <img src="./pokedex.gif">
